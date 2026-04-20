@@ -1,7 +1,7 @@
 {
-  "name": "Mi Despensa",
-  "short_name": "Despensa",
-  "description": "Gestión de clientes y deudas para despensas.",
+  "name": "Grocery Manager",
+  "short_name": "Grocery Manager",
+  "description": "Grocery management.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f9fafb",

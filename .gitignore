@@ -1,0 +1,25 @@
+# Node binaries
+node.exe
+nodevars.bat
+npm
+npm.cmd
+npm.ps1
+npx
+npx.cmd
+npx.ps1
+
+# Dependency directories
+node_modules/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.ico
