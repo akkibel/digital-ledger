@@ -1,87 +1,88 @@
-# 📒 Digital Ledger — Grocery Manager
+# Digital Ledger — Grocery Manager
 
-> Aplicación web PWA mobile-first para gestionar clientes, deudas, pagos y catálogo de productos en tu negocio.
-
----
-
-## ✨ Características
-
-### 👥 Gestión de Clientes
-- Registrar clientes con nombre y teléfono opcional.
-- Ver el **saldo total** de cada cliente en tiempo real.
-- Registrar **deudas** y **pagos** individuales o saldar el total de un clic.
-- Filtrar clientes por nombre con búsqueda instantánea.
-- Eliminar clientes junto con su historial.
-
-### 💳 Transacciones
-- Registrar deudas con monto, detalle y fecha automática.
-- Registrar pagos parciales o totales.
-- Calculadora de pesaje integrada: ingresá kilos y precio/kg para calcular el monto automáticamente.
-- **Saldo a favor** cuando los pagos superan las deudas.
-
-### 📦 Catálogo de Productos
-- Crear **subcategorías** (ej. Lácteos, Fiambres, Bebidas).
-- Agregar productos con nombre, precio y foto (cámara o galería).
-- Buscar productos en todas las categorías.
-- Eliminar productos y subcategorías.
-
-### 🛒 Lista de Faltantes
-- Lista rápida de productos que necesitás reponer.
-- Marcar como comprado con un toque.
-- Eliminar ítems individualmente.
-
-### 📱 WhatsApp
-- Generar un mensaje listo para enviar por WhatsApp a cada cliente con su saldo y últimos movimientos.
-
-### 🌍 Multi-moneda y Multi-idioma
-- Soporte para **Español** e **Inglés**.
-- Selección de país al configurar la app con símbolo de moneda automático:
-  - Paraguay (₲), Argentina ($), México ($), España (€), Perú (S/), Brasil (R$), y más.
-
-### ⚙️ Configuración Inicial
-- Nombre de la empresa.
-- Logo personalizado (cargado desde el dispositivo).
-- Idioma de la interfaz.
-- País y moneda.
+A mobile-first Progressive Web App (PWA) for managing client accounts, debts, payments, and product catalog for small retail businesses.
 
 ---
 
-## 🚀 Tecnologías
+## Features
 
-| Tecnología | Descripción |
+### Client Management
+- Register clients with name and optional phone number.
+- View each client's **total balance** in real time.
+- Record individual debts and payments, or settle the full balance in one tap.
+- Instant search and filter by client name.
+- Delete clients along with their full transaction history.
+
+### Transactions
+- Log debts with amount, description, and automatic timestamp.
+- Register partial or full payments.
+- Built-in **weight calculator**: enter kilograms and price per kg to compute the total automatically.
+- Negative balance display when payments exceed debts (credit in favor).
+
+### Product Catalog
+- Organize products into custom **subcategories** (e.g. Dairy, Deli, Beverages).
+- Add products with name, price, and optional photo (camera or gallery).
+- Search products across all categories.
+- Delete individual products or entire subcategories.
+
+### Shopping List
+- Maintain a quick list of items that need restocking.
+- Mark items as purchased with a single tap.
+- Remove items individually.
+
+### WhatsApp Integration
+- Generate a pre-formatted WhatsApp message for any client showing their current balance and recent transactions.
+
+### Multi-Currency and Multi-Language
+- Supports **Spanish** and **English** interfaces.
+- Select your country during setup; the currency symbol is applied automatically across the entire app.
+
+| Country | Currency |
 |---|---|
-| [React 19](https://react.dev/) | UI reactiva basada en componentes |
-| [TypeScript](https://www.typescriptlang.org/) | Tipado estático para mayor robustez |
-| [Vite 8](https://vite.dev/) | Build tool ultrarrápido |
-| [Tailwind CSS 4](https://tailwindcss.com/) | Estilos utilitarios modernos |
-| [Lucide React](https://lucide.dev/) | Iconografía limpia y consistente |
-| [PWA (Service Worker)](https://web.dev/progressive-web-apps/) | Instalable y funciona offline |
-| `localStorage` | Persistencia de datos local, sin backend |
+| Paraguay | ₲ |
+| Argentina, Mexico, Colombia, Chile, USA | $ |
+| Spain | € |
+| Peru | S/ |
+| Brazil | R$ |
 
 ---
 
-## 📂 Estructura del Proyecto
+## Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| [React 19](https://react.dev/) | Component-based UI |
+| [TypeScript](https://www.typescriptlang.org/) | Static typing |
+| [Vite 8](https://vite.dev/) | Build tooling and dev server |
+| [Tailwind CSS 4](https://tailwindcss.com/) | Utility-first styling |
+| [Lucide React](https://lucide.dev/) | Icon library |
+| PWA (Service Worker) | Installable, offline-capable |
+| `localStorage` | Client-side data persistence, no backend required |
+
+---
+
+## Project Structure
 
 ```
 DSSC/
 ├── public/
-│   ├── manifest.json       # Configuración PWA
-│   └── sw.js               # Service Worker
+│   ├── manifest.json           # PWA manifest
+│   └── sw.js                   # Service Worker
 ├── src/
 │   ├── components/
-│   │   ├── Setup.tsx           # Pantalla de configuración inicial
-│   │   ├── Dashboard.tsx       # Panel principal con clientes
-│   │   ├── TransactionModal.tsx # Modal para registrar deudas/pagos
-│   │   ├── NewClientModal.tsx   # Modal para agregar cliente
-│   │   ├── Catalog.tsx          # Catálogo de productos
-│   │   ├── ProductModal.tsx     # Modal para agregar producto
-│   │   └── MissingItems.tsx     # Lista de faltantes
+│   │   ├── Setup.tsx           # Initial configuration screen
+│   │   ├── Dashboard.tsx       # Main client dashboard
+│   │   ├── TransactionModal.tsx # Debt and payment modal
+│   │   ├── NewClientModal.tsx  # Add client modal
+│   │   ├── Catalog.tsx         # Product catalog
+│   │   ├── ProductModal.tsx    # Add product modal
+│   │   └── MissingItems.tsx    # Restock list
 │   ├── hooks/
-│   │   └── useLocalStorage.ts  # Hook para persistencia local
+│   │   └── useLocalStorage.ts  # Persistent state hook
 │   ├── i18n/
-│   │   └── index.ts            # Traducciones ES/EN
+│   │   └── index.ts            # EN/ES translations
 │   ├── types/
-│   │   └── index.ts            # Interfaces TypeScript
+│   │   └── index.ts            # TypeScript interfaces
 │   ├── App.tsx
 │   └── main.tsx
 ├── package.json
@@ -90,65 +91,60 @@ DSSC/
 
 ---
 
-## 🛠️ Instalación y Desarrollo
+## Getting Started
 
-### Requisitos
-- Node.js 18+
-- npm 9+
+### Prerequisites
+- Node.js 18 or higher
+- npm 9 or higher
 
-### Pasos
+### Installation
 
 ```bash
-# Clonar el repositorio
 git clone https://github.com/akkibel/digital-ledger.git
 cd digital-ledger/DSSC
-
-# Instalar dependencias
 npm install
-
-# Iniciar el servidor de desarrollo
 npm run dev
 ```
 
-La app estará disponible en `http://localhost:5173`.
+The app will be available at `http://localhost:5173`.
 
-### Build para producción
+### Production Build
 
 ```bash
 npm run build
 ```
 
-Los archivos de salida se generarán en la carpeta `dist/`.
+Output files will be generated in the `dist/` directory.
 
 ---
 
-## 📦 Deploy en Vercel
+## Deployment on Vercel
 
-Este proyecto está configurado para desplegarse en [Vercel](https://vercel.com).
+This project is configured for deployment on [Vercel](https://vercel.com).
 
-> ⚠️ **Importante:** Como la app vive dentro de la subcarpeta `DSSC/`, debés configurar el **Root Directory** en Vercel:
-> 1. Ir a **Settings** → **General** del proyecto.
-> 2. En **Root Directory**, escribir: `DSSC`
-> 3. Guardar y redesplegar.
-
----
-
-## 💾 Datos y Privacidad
-
-Toda la información (clientes, transacciones, productos) se almacena **exclusivamente en el dispositivo** del usuario mediante `localStorage`. No se envía ningún dato a servidores externos.
+> **Note:** Since the application lives inside the `DSSC/` subdirectory, the Vercel **Root Directory** must be configured correctly:
+> 1. Go to your project's **Settings > General**.
+> 2. Set **Root Directory** to `DSSC`.
+> 3. Save and redeploy.
 
 ---
 
-## 📋 Roadmap / Ideas Futuras
+## Data and Privacy
 
-- [ ] Exportar historial a PDF o Excel
-- [ ] Sincronización en la nube (opcional)
-- [ ] Estadísticas y gráficos de deudas
-- [ ] Notificaciones de recordatorio de pago
-- [ ] Edición de transacciones existentes
+All data — clients, transactions, and products — is stored **exclusively on the user's device** via `localStorage`. No data is transmitted to any external server.
 
 ---
 
-## 📄 Licencia
+## Roadmap
 
-Este proyecto es de uso privado. Todos los derechos reservados.
+- [ ] Export transaction history to PDF or CSV
+- [ ] Optional cloud sync
+- [ ] Debt analytics and reporting charts
+- [ ] Payment reminder notifications
+- [ ] Edit existing transactions
+
+---
+
+## License
+
+Private use only. All rights reserved.
