@@ -147,4 +147,4 @@ All data — clients, transactions, and products — is stored **exclusively on 
 
 ## License
 
-Private use only. All rights reserved.
+Public License. Do whatever you want.
