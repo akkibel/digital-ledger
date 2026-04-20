@@ -75,7 +75,9 @@ export function Dashboard({ settings }: Props) {
 
   const handleFullPayment = (clientId: string, totalBalance: number) => {
     if (totalBalance <= 0) return;
-    const confirmMessage = t.payInFullConfirm.replace('{amount}', totalBalance.toLocaleString('es-PY'));
+    const confirmMessage = t.payInFullConfirm
+      .replace('{currency}', settings.currencySymbol || '₲')
+      .replace('{amount}', totalBalance.toLocaleString('es-PY'));
     if (window.confirm(confirmMessage)) {
       handleRegisterTransaction(clientId, totalBalance, 'PAYMENT', t.payInFull);
     }
@@ -88,14 +90,18 @@ export function Dashboard({ settings }: Props) {
     }
     
     const recentTransactions = client.transactions.slice(-3).map(m => 
-      `- ${new Date(m.date).toLocaleDateString(settings.language === 'es' ? 'es-PY' : 'en-US')}: ${m.type === 'DEBT' ? t.addDebt : t.registerPayment} ₲${m.amount} ${m.details ? `(${m.details})` : ''}`
+      `- ${new Date(m.date).toLocaleDateString(settings.language === 'es' ? 'es-PY' : 'en-US')}: ${m.type === 'DEBT' ? t.addDebt : t.registerPayment} ${settings.currencySymbol || '₲'}${m.amount} ${m.details ? `(${m.details})` : ''}`
     ).join('%0A');
 
     let balanceText = '';
     if (client.totalBalance > 0) {
-      balanceText = t.waToPay.replace('{amount}', client.totalBalance.toLocaleString('es-PY'));
+      balanceText = t.waToPay
+        .replace('{currency}', settings.currencySymbol || '₲')
+        .replace('{amount}', client.totalBalance.toLocaleString('es-PY'));
     } else {
-      balanceText = t.waInFavor.replace('{amount}', Math.abs(client.totalBalance).toLocaleString('es-PY'));
+      balanceText = t.waInFavor
+        .replace('{currency}', settings.currencySymbol || '₲')
+        .replace('{amount}', Math.abs(client.totalBalance).toLocaleString('es-PY'));
     }
 
     const greeting = t.waGreeting.replace('{name}', client.name).replace('{company}', settings.companyName);
@@ -123,7 +129,7 @@ export function Dashboard({ settings }: Props) {
         </div>
         <div className="mt-2 text-sm text-gray-500 font-medium">{t.totalBalance}</div>
         <div className="text-3xl font-black text-red-600">
-          ₲{globalBalance.toLocaleString('es-PY')}
+          {settings.currencySymbol || '₲'}{globalBalance.toLocaleString('es-PY')}
         </div>
         
         <div className="flex mt-4 bg-gray-100 p-1 rounded-xl">
@@ -199,7 +205,7 @@ export function Dashboard({ settings }: Props) {
                         <div>
                           <div className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{t.balance}</div>
                           <div className={`text-2xl font-black ${client.totalBalance > 0 ? 'text-red-600' : client.totalBalance < 0 ? 'text-green-600' : 'text-gray-900'}`}>
-                            ₲{Math.abs(client.totalBalance).toLocaleString('es-PY')}
+                            {settings.currencySymbol || '₲'}{Math.abs(client.totalBalance).toLocaleString('es-PY')}
                           </div>
                           {client.totalBalance < 0 && <div className="text-xs text-green-600 font-bold">{t.inFavor}</div>}
                         </div>
@@ -231,7 +237,7 @@ export function Dashboard({ settings }: Props) {
                         onClick={() => handleFullPayment(client.id, client.totalBalance)}
                         className="w-full min-h-[48px] mt-2 bg-blue-50 text-blue-700 border border-blue-200 rounded-xl font-bold flex items-center justify-center gap-2 active:bg-blue-100 transition-colors"
                       >
-                        {t.payInFull} (₲{client.totalBalance.toLocaleString('es-PY')})
+                        {t.payInFull} ({settings.currencySymbol || '₲'}{client.totalBalance.toLocaleString('es-PY')})
                       </button>
                     )}
                   </div>

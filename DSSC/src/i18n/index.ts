@@ -11,6 +11,7 @@ export const translations = {
     addLogo: 'Add Logo',
     removeLogo: 'Remove logo',
     language: 'Language',
+    country: 'Country',
     continue: 'Continue',
 
     // Dashboard
@@ -29,7 +30,7 @@ export const translations = {
     registerPayment: 'Register Payment',
     payInFull: 'Pay in Full',
     deleteClientConfirm: 'Are you sure you want to delete this client and all their history? This cannot be undone.',
-    payInFullConfirm: 'Do you want to register a full payment of ₲{amount}?',
+    payInFullConfirm: 'Do you want to register a full payment of {currency}{amount}?',
 
     // New Client Modal
     clientName: 'Client Name *',
@@ -41,10 +42,10 @@ export const translations = {
     registerPaymentTitle: 'Register Payment',
     weightCalculator: 'Weight Calculator',
     weightKg: 'Weight (Kg)',
-    pricePerKg: 'Price per Kg (₲)',
+    pricePerKg: 'Price per Kg ({currency})',
     cancel: 'Cancel',
     calculate: 'Calculate',
-    amount: 'Amount (₲) *',
+    amount: 'Amount ({currency}) *',
     useCalculator: 'Use Calculator',
     detailsOptional: 'Details (Optional)',
     debtPlaceholder: 'e.g. Bread and milk',
@@ -67,7 +68,7 @@ export const translations = {
     add: 'Add',
     noProductsInCategory: 'No products in this subcategory',
     productName: 'Product Name *',
-    price: 'Price (₲) *',
+    price: 'Price ({currency}) *',
     category: 'Subcategory *',
     selectCategory: 'Select a subcategory',
     saveProduct: 'Save Product',
@@ -77,8 +78,8 @@ export const translations = {
     // Whatsapp messages
     noPhoneAlert: 'This client does not have a registered phone number.',
     waGreeting: 'Hello {name}, we are writing from {company}.',
-    waToPay: 'Your pending balance is ₲{amount}.',
-    waInFavor: 'Your balance in favor is ₲{amount}.',
+    waToPay: 'Your pending balance is {currency}{amount}.',
+    waInFavor: 'Your balance in favor is {currency}{amount}.',
     waRecent: 'Recent transactions:',
     waNoRecent: 'No recent transactions.'
   },
@@ -92,6 +93,7 @@ export const translations = {
     addLogo: 'Añadir Logo',
     removeLogo: 'Quitar logo',
     language: 'Idioma',
+    country: 'País',
     continue: 'Continuar',
 
     // Dashboard
@@ -110,7 +112,7 @@ export const translations = {
     registerPayment: 'Registrar Pago',
     payInFull: 'Saldar Total',
     deleteClientConfirm: '¿Estás seguro de eliminar este cliente y todo su historial? Esta acción no se puede deshacer.',
-    payInFullConfirm: '¿Deseas registrar un pago por el total de ₲{amount}?',
+    payInFullConfirm: '¿Deseas registrar un pago por el total de {currency}{amount}?',
 
     // New Client Modal
     clientName: 'Nombre del Cliente *',
@@ -122,10 +124,10 @@ export const translations = {
     registerPaymentTitle: 'Registrar Pago',
     weightCalculator: 'Calculadora de Pesaje',
     weightKg: 'Peso (Kg)',
-    pricePerKg: 'Precio x Kg (₲)',
+    pricePerKg: 'Precio x Kg ({currency})',
     cancel: 'Cancelar',
     calculate: 'Calcular',
-    amount: 'Monto (₲) *',
+    amount: 'Monto ({currency}) *',
     useCalculator: 'Usar Calculadora',
     detailsOptional: 'Detalle (Opcional)',
     debtPlaceholder: 'Ej. Fiambre y pan',
@@ -148,7 +150,7 @@ export const translations = {
     add: 'Añadir',
     noProductsInCategory: 'No hay productos en esta subsección',
     productName: 'Nombre del Producto *',
-    price: 'Precio (₲) *',
+    price: 'Precio ({currency}) *',
     category: 'Categoría (Subsección) *',
     selectCategory: 'Seleccione una subsección',
     saveProduct: 'Guardar Producto',
@@ -158,8 +160,8 @@ export const translations = {
     // Whatsapp messages
     noPhoneAlert: 'Este cliente no tiene teléfono registrado.',
     waGreeting: 'Hola {name}, te escribimos de {company}.',
-    waToPay: 'Tu saldo a pagar es de ₲{amount}.',
-    waInFavor: 'Tu saldo a favor es de ₲{amount}.',
+    waToPay: 'Tu saldo a pagar es de {currency}{amount}.',
+    waInFavor: 'Tu saldo a favor es de {currency}{amount}.',
     waRecent: 'Últimos movimientos:',
     waNoRecent: 'Sin movimientos recientes.'
   }

@@ -38,4 +38,6 @@ export interface AppSettings {
     language: 'en' | 'es';
     companyName: string;
     logoUrl?: string; // base64
+    currencySymbol: string;
+    country: string;
 }

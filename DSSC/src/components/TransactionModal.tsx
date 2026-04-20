@@ -67,7 +67,7 @@ export function TransactionModal({ type, settings, onClose, onSave }: Props) {
                 />
               </div>
               <div className="flex-1">
-                <label className="text-xs font-bold text-blue-800">{t.pricePerKg}</label>
+                <label className="text-xs font-bold text-blue-800">{t.pricePerKg.replace('{currency}', settings.currencySymbol || '₲')}</label>
                 <input 
                   type="number"
                   step="1"
@@ -100,7 +100,7 @@ export function TransactionModal({ type, settings, onClose, onSave }: Props) {
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <div className="flex flex-col gap-2 relative">
             <div className="flex justify-between items-center">
-              <label className="text-sm font-bold text-gray-700">{t.amount}</label>
+              <label className="text-sm font-bold text-gray-700">{t.amount.replace('{currency}', settings.currencySymbol || '₲')}</label>
               {!showCalculator && isDebt && (
                 <button 
                   type="button" 
@@ -113,7 +113,7 @@ export function TransactionModal({ type, settings, onClose, onSave }: Props) {
             </div>
             
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl font-bold text-gray-500">₲</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl font-bold text-gray-500">{settings.currencySymbol || '₲'}</span>
               <input 
                 type="number" 
                 step="1"

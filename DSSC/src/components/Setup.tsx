@@ -7,8 +7,21 @@ interface Props {
   onComplete: (settings: AppSettings) => void;
 }
 
+const COUNTRIES = [
+  { code: 'PY', nameES: 'Paraguay', nameEN: 'Paraguay', symbol: '₲' },
+  { code: 'AR', nameES: 'Argentina', nameEN: 'Argentina', symbol: '$' },
+  { code: 'US', nameES: 'Estados Unidos', nameEN: 'United States', symbol: '$' },
+  { code: 'MX', nameES: 'México', nameEN: 'Mexico', symbol: '$' },
+  { code: 'ES', nameES: 'España', nameEN: 'Spain', symbol: '€' },
+  { code: 'CO', nameES: 'Colombia', nameEN: 'Colombia', symbol: '$' },
+  { code: 'CL', nameES: 'Chile', nameEN: 'Chile', symbol: '$' },
+  { code: 'PE', nameES: 'Perú', nameEN: 'Peru', symbol: 'S/' },
+  { code: 'BR', nameES: 'Brasil', nameEN: 'Brazil', symbol: 'R$' },
+];
+
 export function Setup({ onComplete }: Props) {
   const [language, setLanguage] = useState<'en' | 'es'>('es');
+  const [countryCode, setCountryCode] = useState('PY');
   const [companyName, setCompanyName] = useState('');
   const [logoUrl, setLogoUrl] = useState<string | undefined>();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -18,11 +31,14 @@ export function Setup({ onComplete }: Props) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!companyName.trim()) return;
+    const selectedCountry = COUNTRIES.find(c => c.code === countryCode) || COUNTRIES[0];
     onComplete({
       isConfigured: true,
       language,
       companyName: companyName.trim(),
-      logoUrl
+      logoUrl,
+      currencySymbol: selectedCountry.symbol,
+      country: selectedCountry.code
     });
   };
 
@@ -55,6 +71,21 @@ export function Setup({ onComplete }: Props) {
             >
               <option value="es">Español</option>
               <option value="en">English</option>
+            </select>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-bold text-gray-700">{t.country || 'País'}</label>
+            <select
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-lg focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 bg-white"
+              value={countryCode}
+              onChange={(e) => setCountryCode(e.target.value)}
+            >
+              {COUNTRIES.map(c => (
+                <option key={c.code} value={c.code}>
+                  {language === 'es' ? c.nameES : c.nameEN} ({c.symbol})
+                </option>
+              ))}
             </select>
           </div>
 

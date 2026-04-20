@@ -7,7 +7,9 @@ function App() {
   const [settings, setSettings] = useLocalStorage<AppSettings>('dssc-settings-v2', {
     isConfigured: false,
     language: 'es',
-    companyName: ''
+    companyName: '',
+    currencySymbol: '₲',
+    country: 'PY'
   });
 
   return (

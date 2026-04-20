@@ -94,9 +94,9 @@ export function ProductModal({ settings, categories, preselectedCategoryId, onCl
           </div>
           
           <div className="flex flex-col gap-2">
-            <label className="text-sm font-bold text-gray-700">{t.price}</label>
+            <label className="text-sm font-bold text-gray-700">{t.price.replace('{currency}', settings.currencySymbol || '₲')}</label>
             <div className="relative">
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xl font-bold text-gray-500">₲</span>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xl font-bold text-gray-500">{settings.currencySymbol || '₲'}</span>
               <input 
                 type="number" 
                 step="1"

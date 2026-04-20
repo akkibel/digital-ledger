@@ -158,7 +158,7 @@ export function Catalog({ settings }: Props) {
                         )}
                         <div className="flex-1">
                           <h4 className="font-bold text-gray-900 text-lg leading-tight">{prod.name}</h4>
-                          <div className="text-blue-600 font-black mt-1">₲{prod.price.toLocaleString('es-PY')}</div>
+                          <div className="text-blue-600 font-black mt-1">{settings.currencySymbol || '₲'}{prod.price.toLocaleString('es-PY')}</div>
                         </div>
                         <button onClick={() => handleDeleteProduct(prod.id)} className="p-3 text-red-400 active:bg-red-50 rounded-full">
                           <Trash2 className="w-5 h-5" />
