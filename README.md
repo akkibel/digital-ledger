@@ -64,7 +64,6 @@ A mobile-first Progressive Web App (PWA) for managing client accounts, debts, pa
 ## Project Structure
 
 ```
-DSSC/
 ├── public/
 │   ├── manifest.json           # PWA manifest
 │   └── sw.js                   # Service Worker
@@ -86,7 +85,8 @@ DSSC/
 │   ├── App.tsx
 │   └── main.tsx
 ├── package.json
-└── vite.config.ts
+├── vite.config.ts
+└── README.md
 ```
 
 ---
@@ -101,7 +101,7 @@ DSSC/
 
 ```bash
 git clone https://github.com/akkibel/digital-ledger.git
-cd digital-ledger/DSSC
+cd digital-ledger
 npm install
 npm run dev
 ```
@@ -122,10 +122,7 @@ Output files will be generated in the `dist/` directory.
 
 This project is configured for deployment on [Vercel](https://vercel.com).
 
-> **Note:** Since the application lives inside the `DSSC/` subdirectory, the Vercel **Root Directory** must be configured correctly:
-> 1. Go to your project's **Settings > General**.
-> 2. Set **Root Directory** to `DSSC`.
-> 3. Save and redeploy.
+Since `package.json` and `vite.config.ts` are now at the repository root, Vercel will detect the project automatically with no additional configuration required. The default build command (`npm run build`) and output directory (`dist`) are already correct.
 
 ---
 
